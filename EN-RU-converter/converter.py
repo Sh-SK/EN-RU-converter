@@ -4,11 +4,11 @@
 
 import sys
 
-dict_ENRU = {"~": "Ё", "`": "ё",
+dict_ENRU = {"~": "Ё", "`": "ё", "@": "\"", "#": "№", "$": ";", "^": ":", "&": "?",
              "q": "й", "w": "ц", "e": "у", "r": "к", "t": "е", "y": "н", "u": "г", "i": "ш", "o": "щ", "p": "з", "[": "х", "]": "ъ", "{": "Х", "}": "Ъ",
              "a": "ф", "s": "ы", "d": "в", "f": "а", "g": "п", "h": "р", "j": "о", "k": "л", "l": "д", ";": "ж", ":": "Ж", "'": "э", '"': "Э",
              "z": "я", "x": "ч", "c": "с", "v": "м", "b": "и", "n": "т", "m": "ь", ",": "б", "<": "Б", ".": "ю", ">": "Ю", "/": ".", "?": ","}
-tuple_const = (" ", "!", "%", "*", "(", ")", "-", "_", "=", "+", '\\')
+tuple_const = (" ", "!", "%", "*", "(", ")", "-", "_", "=", "+", '\\', '\n')
 
 
 def convert(text):
@@ -30,14 +30,16 @@ def convert(text):
     # res_text = res_text.capitalize()
     return res_text
 
-if len(sys.argv) < 2:
-    myString = input("Введите строку, которую надо исправить: ")
-    resString = convert(myString)
-    output = "Строка в неправильной раскладке: {}\nИсправленная строка: {}".format(myString, resString)
-    print(output)
 
-if len(sys.argv) >= 2:
-    myList = sys.argv[1:]
-    myString = ' '.join(myList)
-    resString = convert(myString)
-    print(resString)
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        myString = input("Введите строку, которую надо исправить: ")
+        resString = convert(myString)
+        output = "Строка в неправильной раскладке: {}\nИсправленная строка: {}".format(myString, resString)
+        print(output)
+
+    if len(sys.argv) >= 2:
+        myList = sys.argv[1:]
+        myString = ' '.join(myList)
+        resString = convert(myString)
+        print(resString)
